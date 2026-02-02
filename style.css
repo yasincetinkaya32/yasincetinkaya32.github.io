@@ -40,3 +40,27 @@ footer {
   background: #2c3e50;
   color: white;
 }
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #2c3e50, #4b79a1);
+  color: white;
+  padding: 40px 20px;
+}
+
+.logo {
+  width: 110px;
+  filter: drop-shadow(0 0 10px rgba(0,150,255,0.6));
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.header-text p {
+  margin: 5px 0 0;
+  font-size: 16px;
+}
