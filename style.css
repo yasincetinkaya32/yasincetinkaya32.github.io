@@ -63,4 +63,30 @@ footer {
 .header-text p {
   margin: 5px 0 0;
   font-size: 16px;
+}.hero {
+  position: relative;
+  height: 70vh;
+  background:
+    linear-gradient(rgba(20,30,40,0.85), rgba(20,30,40,0.85)),
+    url("logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 56px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0.9;
 }
