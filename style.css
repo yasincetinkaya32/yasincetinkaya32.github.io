@@ -79,14 +79,17 @@ footer {
   color: white;
 }
 
-.hero h1 {
-  font-size: 56px;
-  margin: 0;
-  letter-spacing: 2px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-top: 10px;
-  opacity: 0.9;
+.hero {
+  position: relative;
+  min-height: 60vh;
+  background-image: url("./logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 380px;
+  background-color: #1f2a36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
 }
