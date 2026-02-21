@@ -1,33 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>YÇ3D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div>
+    <h1>YÇ3D</h1>
+    <p>3D Tasarım • 3D Baskı • Elektronik Projeler</p>
+  </div>
+</header>
+
 <section class="projects">
-  <h2>Projeler</h2>
+  <h2>Proje: Ortam Kontrol Sistemi</h2>
 
   <div class="tabs">
-    <button class="tab-btn active" onclick="openTab('aciklama')">Açıklama</button>
-    <button class="tab-btn" onclick="openTab('kod')">Kod</button>
-    <button class="tab-btn" onclick="openTab('devre')">Devre Şeması</button>
+    <button class="tab-btn active" onclick="openTab('aciklama', this)">Açıklama</button>
+    <button class="tab-btn" onclick="openTab('kod', this)">Kod</button>
+    <button class="tab-btn" onclick="openTab('devre', this)">Devre</button>
+    <button class="tab-btn" onclick="openTab('gorsel', this)">Görsel</button>
   </div>
 
   <div id="aciklama" class="tab-content active">
-    <h3>3D Baskı Fiyat Hesaplama</h3>
     <p>
-      STL dosyasından hacim ve süre hesaplayarak otomatik fiyat çıkaran sistem.
-      Python + Excel çıktı destekli.
+      Arduino tabanlı sıcaklık ve nem ölçüm sistemi.
+      LCD ekranda veri gösterimi ve servo kontrol içerir.
     </p>
   </div>
 
   <div id="kod" class="tab-content">
-    <pre><code>
-import trimesh
+<pre><code>
+#include &lt;DHT.h&gt;
 
-mesh = trimesh.load("model.stl")
-volume = mesh.volume
-print("Hacim:", volume)
-    </code></pre>
+#define DHTPIN 2
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+
+void loop() {
+  float temp = dht.readTemperature();
+  float hum = dht.readHumidity();
+  Serial.println(temp);
+  delay(2000);
+}
+</code></pre>
   </div>
 
   <div id="devre" class="tab-content">
     <img src="devre.png" alt="Devre Şeması">
   </div>
+
+  <div id="gorsel" class="tab-content">
+    <img src="dere_yc.png" alt="Proje Görseli">
+  </div>
 </section>
 
+<footer>
+  © 2026 YÇ3D
+</footer>
+
 <script src="script.js"></script>
+</body>
+</html>
