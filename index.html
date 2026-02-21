@@ -1,53 +1,33 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <title>Yasin Çetinkaya|robotik ,kodlama & 3D Baskı SAYFA YAPIM AŞAMASINDA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<section class="projects">
+  <h2>Projeler</h2>
 
-
-<header class="hero">
-  <div class="overlay">
-    <h1>Yasin Çetinkaya</h1>
-    <p>robotik ,kodlama, tasarım</p>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab('aciklama')">Açıklama</button>
+    <button class="tab-btn" onclick="openTab('kod')">Kod</button>
+    <button class="tab-btn" onclick="openTab('devre')">Devre Şeması</button>
   </div>
-</header>
 
-
-
-
-  <section>
-    <h2>Hakkımda</h2>
+  <div id="aciklama" class="tab-content active">
+    <h3>3D Baskı Fiyat Hesaplama</h3>
     <p>
-     robotik kodlama alanında projeler geliştiriyorum.
-      
+      STL dosyasından hacim ve süre hesaplayarak otomatik fiyat çıkaran sistem.
+      Python + Excel çıktı destekli.
     </p>
-  </section>
+  </div>
 
-  <section>
-    <h2>Hizmetler</h2>
-    <ul>
-      <li>🔹 3D Modelleme</li>
-      <li>🔹 robotik </li>
-      <li>🔹kodlama</li>
-      <li>🔹 elektronik</li>
-    </ul>
-  </section>
+  <div id="kod" class="tab-content">
+    <pre><code>
+import trimesh
 
-  <section>
-    <h2>İletişim</h2>
-    <p>
-      📧 Mail: cetinkayayasin662@gmail.com <br>
-    
-    </p>
-  </section>
+mesh = trimesh.load("model.stl")
+volume = mesh.volume
+print("Hacim:", volume)
+    </code></pre>
+  </div>
 
-  <footer>
-    <p>© 2026 YASİN ÇETİNKAYA</p>
-  </footer>
+  <div id="devre" class="tab-content">
+    <img src="devre.png" alt="Devre Şeması">
+  </div>
+</section>
 
-</body>
-</html>
+<script src="script.js"></script>
