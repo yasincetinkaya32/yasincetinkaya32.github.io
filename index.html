@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasin Çetinkaya | Elektronik ve Gömülü Sistemler</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #161b22;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        section {
+            padding: 5rem 5%;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+            background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #8b949e;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background-color: #238636;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #2ea043;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #ffffff;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 1rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Sekme (Tab) Stilleri */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: #21262d;
+            color: #c9d1d9;
+            border: 1px solid #30363d;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            border-color: #8b949e;
+        }
+
+        .tab-btn.active {
+            background-color: #58a6ff;
+            color: #0d1117;
+            border-color: #58a6ff;
+        }
+
+        .projects-grid {
+            display: none; /* Varsayılan olarak gizli */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .projects-grid.active {
+            display: grid; /* Aktif sekme görünür olur */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+        }
+
+        .project-card h3 {
+            color: #58a6ff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .tags {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #1f6feb;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #161b22;
+            border-top: 1px solid #30363d;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Yasin Çetinkaya</a>
+        <nav>
+            <ul>
+                <li><a href="#hakkimda">Hakkımda</a></li>
+                <li><a href="#projeler">Projeler</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Elektroniğe Hayat Veriyorum</h1>
+        <h2>Arduino, Gömülü Sistemler ve Donanım Tasarımı üzerine geliştirdiğim projelere hoş geldiniz.</h2>
+        <a href="#projeler" class="btn">Projelerimi İncele</a>
+    </section>
+
+    <section id="hakkimda">
+        <h2 class="section-title">Hakkımda</h2>
+        <div class="about-content">
+            <p>Merhaba, ben <strong>Yasin Çetinkaya</strong>.</p>
+            <p><br>Isparta Uygulamalı Bilimler Üniversitesi (ISUBÜ) Elektrik-Elektronik Mühendisliği bölümünde eğitimime devam ediyorum. Temel devre analizinden karmaşık gömülü sistemlere kadar elektroniğin her alanına ilgi duyuyorum. Projelerimde genellikle Arduino, ESP32 ve Raspberry Pi gibi mikrodenetleyiciler kullanıyor, bu sistemlerin hem yazılım (Python, C/C++) hem de donanım (PCB tasarımı, Multisim analizleri, 3 Boyutlu muhafaza baskıları) kısımlarıyla bizzat ilgileniyorum.</p>
+        </div>
+    </section>
+
+    <section id="projeler">
+        <h2 class="section-title">Projelerim</h2>
+        
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="openTab('tumu')">Tümü</button>
+            <button class="tab-btn" onclick="openTab('gomulu')">Arduino & ESP32</button>
+            <button class="tab-btn" onclick="openTab('pcb')">Devre & PCB</button>
+            <button class="tab-btn" onclick="openTab('sayisal')">Sayısal Tasarım (Verilog)</button>
+            <button class="tab-btn" onclick="openTab('3d')">3D Baskı</button>
+        </div>
+
+        <div id="tumu" class="projects-grid active">
+            <div class="project-card">
+                <h3>Akıllı Ev Otomasyonu</h3>
+                <p>ESP32 kullanarak geliştirdiğim, Wi-Fi üzerinden kontrol edilebilen akıllı röle ve sensör sistemi. Sıcaklık ve nem verileri anlık olarak buluta aktarılıyor.</p>
+                <div class="tags"><span class="tag">ESP32</span><span class="tag">C++</span></div>
+            </div>
+            <div class="project-card">
+                <h3>Özel PCB Etching Çözümü</h3>
+                <p>Mikrodenetleyici projelerindeki kablo karmaşasını çözmek için sitrik asit ve hidrojen peroksit gibi alternatif çözeltilerle ürettiğim özel kontrol kartları.</p>
+                <div class="tags"><span class="tag">PCB Tasarımı</span><span class="tag">Lehimleme</span></div>
+            </div>
+            <div class="project-card">
+                <h3>16-Bit Full Adder Tasarımı</h3>
+                <p>Hiyerarşik yapı kullanarak Verilog donanım tanımlama dili ile tasarladığım ve ModelSim üzerinden testbench ile doğruladığım 16-bit toplayıcı devresi.</p>
+                <div class="tags"><span class="tag">Verilog</span><span class="tag">ModelSim</span></div>
+            </div>
+            <div class="project-card">
+                <h3>AC Devre Analizi ve Simülasyonu</h3>
+                <p>RL ve RC devrelerinde empedans ve faz farkı hesaplamalarını Multisim üzerinden simüle ederek laboratuvar ortamında doğrulama çalışmaları.</p>
+                <div class="tags"><span class="tag">Multisim</span><span class="tag">Devre Analizi</span></div>
+            </div>
+        </div>
+
+        <div id="gomulu" class="projects-grid">
+            <div class="project-card">
+                <h3>Akıllı Ev Otomasyonu</h3>
+                <p>ESP32 kullanarak geliştirdiğim, Wi-Fi üzerinden kontrol edilebilen akıllı röle ve sensör sistemi. Sıcaklık ve nem verileri anlık olarak buluta aktarılıyor.</p>
+                <div class="tags"><span class="tag">ESP32</span><span class="tag">C++</span></div>
+            </div>
+            <div class="project-card">
+                <h3>Robotik Kol Kontrolcüsü</h3>
+                <p>Arduino tabanlı, potansiyometreler ile hareketleri kaydedip tekrarlayabilen 4 eksenli robotik kol projesi.</p>
+                <div class="tags"><span class="tag">Arduino</span><span class="tag">Servo Motor</span></div>
+            </div>
+        </div>
+
+        <div id="pcb" class="projects-grid">
+            <div class="project-card">
+                <h3>Özel PCB Etching Çözümü</h3>
+                <p>Mikrodenetleyici projelerindeki kablo karmaşasını çözmek için sitrik asit ve hidrojen peroksit gibi alternatif çözeltilerle ürettiğim özel kontrol kartları.</p>
+                <div class="tags"><span class="tag">PCB Tasarımı</span><span class="tag">Lehimleme</span></div>
+            </div>
+            <div class="project-card">
+                <h3>AC Devre Analizi ve Simülasyonu</h3>
+                <p>RL ve RC devrelerinde empedans ve faz farkı hesaplamalarını Multisim üzerinden simüle ederek laboratuvar ortamında doğrulama çalışmaları.</p>
+                <div class="tags"><span class="tag">Multisim</span><span class="tag">Devre Analizi</span></div>
+            </div>
+        </div>
+
+        <div id="sayisal" class="projects-grid">
+            <div class="project-card">
+                <h3>16-Bit Full Adder Tasarımı</h3>
+                <p>Hiyerarşik yapı kullanarak Verilog donanım tanımlama dili ile tasarladığım ve ModelSim üzerinden testbench ile doğruladığım 16-bit toplayıcı devresi.</p>
+                <div class="tags"><span class="tag">Verilog</span><span class="tag">ModelSim</span></div>
+            </div>
+            <div class="project-card">
+                <h3>ALU (Aritmetik Mantık Birimi) Tasarımı</h3>
+                <p>Sayısal mantık devreleri kapsamında tasarlanan, temel matematiksel ve mantıksal işlemleri gerçekleştiren donanım modülü.</p>
+                <div class="tags"><span class="tag">Dijital Elektronik</span><span class="tag">FPGA</span></div>
+            </div>
+        </div>
+
+        <div id="3d" class="projects-grid">
+            <div class="project-card">
+                <h3>Proje Muhafazaları & Mekanik Parçalar</h3>
+                <p>Bambu Lab A1 ve Ender 3 V3 SE gibi yazıcıları kullanarak elektronik devrelerim için tasarladığım özel kutular ve prototip mekanik parçalar.</p>
+                <div class="tags"><span class="tag">3D Modelleme</span><span class="tag">Prototipleme</span></div>
+            </div>
+             <div class="project-card">
+                <h3>Ölçekli Araç Modelleri</h3>
+                <p>STL formatındaki detaylı araç tasarımlarının (örn. Opel Grandland X vb.) optimizasyonu ve yüksek kalitede 3 boyutlu basımı.</p>
+                <div class="tags"><span class="tag">3D Baskı</span><span class="tag">Hobi</span></div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="iletisim">
+        <h2 class="section-title">İletişime Geç</h2>
+        <div class="about-content">
+            <p>Projelerim hakkında konuşmak veya ortak çalışmalar yapmak isterseniz bana ulaşabilirsiniz.</p>
+            <br>
+            <a href="mailto:eposta@adresin.com" class="btn">Bana E-Posta Gönder</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Yasin Çetinkaya. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        function openTab(tabId) {
+            // Tüm sekme içeriklerini gizle
+            let grids = document.querySelectorAll('.projects-grid');
+            grids.forEach(grid => {
+                grid.classList.remove('active');
+            });
+
+            // Tüm butonlardaki aktif rengini kaldır
+            let btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Tıklanan butonu aktif yap ve ilgili içeriği göster
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
